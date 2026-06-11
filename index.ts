@@ -1,4 +1,4 @@
-import { AttachmentBuilder, CategoryChannel, Client, Colors, Embed, EmbedBuilder, Events, ForumChannel, GatewayIntentBits, Guild, GuildMember, MediaChannel, Message, PartialGroupDMChannel, User, type OmitPartialGroupDMChannel, type PartialMessage } from 'discord.js';
+import { AttachmentBuilder, Client, Colors, EmbedBuilder, Events, ForumChannel, GatewayIntentBits, Guild, GuildMember, Message, User, type OmitPartialGroupDMChannel, type PartialMessage } from 'discord.js';
 import { DataTypes, Model, Sequelize } from 'sequelize';
 import type { Shared, Attachment } from './types';
 import { join } from 'path';
@@ -21,7 +21,7 @@ const logger = pino({
     },
     pino.multistream([
         { stream: prettyStream, level: 'trace' },
-        { stream: createWriteStream(join(dataFolder, 'logs', 'bot.log'), { flags: 'a' }), level: 'info' }
+        { stream: createWriteStream(join(__dirname, 'logs', 'bot.log'), { flags: 'a' }), level: 'info' }
     ])
 );
 
